@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoHerenciaApplication<demo-herencia>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.herencia.demoherencia.DemoHerenciaApplication",
+            "projectName": "demo-herencia",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
