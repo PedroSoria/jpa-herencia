@@ -15,12 +15,9 @@ import com.herencia.demoherencia.repository.OtherAttributes2Repository;
 import com.herencia.demoherencia.repository.OtherUser1Repository;
 import com.herencia.demoherencia.repository.OtherUser2Repository;
 import com.herencia.demoherencia.repository.UserRepository;
-
 import jakarta.transaction.Transactional;
-// import lombok.RequiredArgsConstructor;
 
 @Component
-// @RequiredArgsConstructor
 public class SeedData implements ApplicationRunner {
 
     @Autowired
@@ -62,15 +59,15 @@ public class SeedData implements ApplicationRunner {
         otherAttribute11.setOtherAttributeName3("otherUser2");
         otherAttribute11.setOtherUser1(otherUser2);
 
-        OtherAttributes2 otherAttribute2 = new OtherAttributes2();
-        otherAttribute2.setOtherAttributeName4("otherUser2");
-        otherAttribute2.setOtherAttributeName5("otherUser2");
-        otherAttribute2.setOtherAttributeName6("otherUser2");
-        otherAttribute2.setOtherUser2(otherUser2);
+        OtherAttributes2 otherAttribute22 = new OtherAttributes2();
+        otherAttribute22.setOtherAttributeName4("otherUser2");
+        otherAttribute22.setOtherAttributeName5("otherUser2");
+        otherAttribute22.setOtherAttributeName6("otherUser2");
+        otherAttribute22.setOtherUser2(otherUser2);
 
         otherAttributeRepository1.save(otherAttribute1);
         otherAttributeRepository1.save(otherAttribute11);
-        otherAttributeRepository2.save(otherAttribute2);
+        otherAttributeRepository2.save(otherAttribute22);
         userRepository.save(user1);
         otherUserRepository1.save(otherUser1);
         otherUserRepository2.save(otherUser2);

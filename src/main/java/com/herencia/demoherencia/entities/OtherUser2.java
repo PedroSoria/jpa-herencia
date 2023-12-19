@@ -7,12 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-// @AllArgsConstructor
-// @NoArgsConstructor
-// @Table(name = "other_user")
 public class OtherUser2 extends OtherUser1 {
-
-    // @OneToOne
-    // protected OtherAttributes2 otherAttribute;
 
 }
