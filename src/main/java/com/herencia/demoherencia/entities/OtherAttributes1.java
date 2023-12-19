@@ -1,7 +1,6 @@
 package com.herencia.demoherencia.entities;
 
 import java.io.Serializable;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +20,10 @@ public class OtherAttributes1 implements Serializable {
     @OneToOne
     protected OtherUser1 otherUser1;
 
+    @Column(nullable = false)
     String otherAttributeName1;
+    @Column(nullable = false)
     String otherAttributeName2;
+    @Column(nullable = false)
     String otherAttributeName3;
 }
