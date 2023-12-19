@@ -10,20 +10,20 @@ import lombok.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "other_attribute2")
-public class OtherAttributes2 implements Serializable {
+@Table(name = "other_attribute1")
+public class AttributesUserB implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "otherattribute_sequence")
     @SequenceGenerator(name = "otherattribute_sequence", sequenceName = "otherattribute_sequence", allocationSize = 100)
     Long id;
 
     @OneToOne
-    protected OtherUser2 otherUser2;
+    protected UserB userB;
 
     @Column(nullable = false)
-    String otherAttributeName4;
+    String otherAttributeName1;
     @Column(nullable = false)
-    String otherAttributeName5;
+    String otherAttributeName2;
     @Column(nullable = false)
-    String otherAttributeName6;
+    String otherAttributeName3;
 }

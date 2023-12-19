@@ -8,7 +8,7 @@ import lombok.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "_user")
 @Data
-public class User implements Serializable {
+public class UserA implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true)

@@ -6,7 +6,6 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@ToString
-public class OtherUser1 extends User {
+public class UserB extends UserA {
 
 }
