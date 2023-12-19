@@ -4,11 +4,7 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 public class AttributesUserB implements Serializable {
 
@@ -21,8 +17,10 @@ public class AttributesUserB implements Serializable {
 
     @Column(nullable = false)
     String otherAttributeName1;
+
     @Column(nullable = false)
     String otherAttributeName2;
+
     @Column(nullable = false)
     String otherAttributeName3;
 }
