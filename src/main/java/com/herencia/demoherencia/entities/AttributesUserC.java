@@ -10,12 +10,11 @@ import lombok.*;
 @Setter
 @ToString
 @Entity
-@Table(name = "other_attribute2")
 public class AttributesUserC implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    Long idAttributesUserB;
 
     @OneToOne
     protected UserC userC;
