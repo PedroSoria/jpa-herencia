@@ -5,11 +5,11 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.herencia.demoherencia.entities.OtherAttribute;
-import com.herencia.demoherencia.entities.OtherUser;
+import com.herencia.demoherencia.entities.OtherAttributes1;
+import com.herencia.demoherencia.entities.OtherUser1;
 import com.herencia.demoherencia.entities.User;
-import com.herencia.demoherencia.repository.OtherAttributeRepository;
-import com.herencia.demoherencia.repository.OtherUserRepository;
+import com.herencia.demoherencia.repository.OtherAttributes1Repository;
+import com.herencia.demoherencia.repository.OtherUser1Repository;
 import com.herencia.demoherencia.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
@@ -22,9 +22,9 @@ public class SeedData implements ApplicationRunner {
     @Autowired
     UserRepository userRepository;
     @Autowired
-    OtherUserRepository otherUserRepository;
+    OtherUser1Repository otherUserRepository;
     @Autowired
-    OtherAttributeRepository otherAttributeRepository;
+    OtherAttributes1Repository otherAttributeRepository;
 
     @Override
     @Transactional
@@ -34,13 +34,15 @@ public class SeedData implements ApplicationRunner {
         user1.setEmail("fds@fds.com");
         user1.setPassword("123");
 
-        OtherAttribute otherAttribute = new OtherAttribute();
-        otherAttribute.setOtherAttributeName("dsffds");
-
-        OtherUser otherUser1 = new OtherUser();
+        OtherUser1 otherUser1 = new OtherUser1();
         otherUser1.setEmail("fsssds@fdsss.com");
         otherUser1.setPassword("123");
-        otherUser1.setOtherAttribute(otherAttribute);
+
+        OtherAttributes1 otherAttribute = new OtherAttributes1();
+        otherAttribute.setOtherAttributeName1("dsffds");
+        otherAttribute.setOtherAttributeName2("null");
+        otherAttribute.setOtherAttributeName3("3");
+        otherAttribute.setOtherUser1(otherUser1);
 
         otherAttributeRepository.save(otherAttribute);
         userRepository.save(user1);
