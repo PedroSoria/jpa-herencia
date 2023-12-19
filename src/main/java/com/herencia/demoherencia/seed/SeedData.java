@@ -30,7 +30,7 @@ public class SeedData implements ApplicationRunner {
     @Autowired
     AttributesCRepository attributesCRepository;
 
-    @Override
+    @Transactional
     public void run(ApplicationArguments args) throws Exception {
 
         CreateUser("User1", "User1");
