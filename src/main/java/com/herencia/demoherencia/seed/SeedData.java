@@ -9,8 +9,8 @@ import com.herencia.demoherencia.entities.AttributesUserC;
 import com.herencia.demoherencia.entities.UserC;
 import com.herencia.demoherencia.entities.UserB;
 import com.herencia.demoherencia.entities.UserA;
-import com.herencia.demoherencia.repository.OtherAttributesBRepository;
-import com.herencia.demoherencia.repository.OtherAttributesCRepository;
+import com.herencia.demoherencia.repository.AttributesBRepository;
+import com.herencia.demoherencia.repository.AttributesCRepository;
 import com.herencia.demoherencia.repository.UserARepository;
 import com.herencia.demoherencia.repository.UserBRepository;
 import com.herencia.demoherencia.repository.UserCRepository;
@@ -26,9 +26,9 @@ public class SeedData implements ApplicationRunner {
     @Autowired
     UserCRepository userCRepository;
     @Autowired
-    OtherAttributesBRepository otherAttributesBRepository;
+    AttributesBRepository attributesBRepository;
     @Autowired
-    OtherAttributesCRepository otherAttributesCRepository;
+    AttributesCRepository attributesCRepository;
 
     @Override
     @Transactional
@@ -37,7 +37,6 @@ public class SeedData implements ApplicationRunner {
         CreateUser("User1", "User1");
         CreateUser("User2", "User2", "User2", "User2", "User2");
         CreateUser("User3", "User3", "User3", "User3", "User3", "User3", "User3", "User3");
-
     }
 
     public void CreateUser(String email, String password) {
@@ -54,13 +53,13 @@ public class SeedData implements ApplicationRunner {
         user.setEmail(email);
         user.setPassword(password);
 
-        AttributesUserB otherAttribute1 = new AttributesUserB();
-        otherAttribute1.setOtherAttributeName1(_1);
-        otherAttribute1.setOtherAttributeName2(_2);
-        otherAttribute1.setOtherAttributeName3(_3);
-        otherAttribute1.setUserB(user);
+        AttributesUserB attribute1 = new AttributesUserB();
+        attribute1.setOtherAttributeName1(_1);
+        attribute1.setOtherAttributeName2(_2);
+        attribute1.setOtherAttributeName3(_3);
+        attribute1.setUserB(user);
 
-        otherAttributesBRepository.save(otherAttribute1);
+        attributesBRepository.save(attribute1);
         userBRepository.save(user);
     }
 
@@ -71,20 +70,20 @@ public class SeedData implements ApplicationRunner {
         user.setEmail(email);
         user.setPassword(password);
 
-        AttributesUserB otherAttribute1 = new AttributesUserB();
-        otherAttribute1.setOtherAttributeName1(_1);
-        otherAttribute1.setOtherAttributeName2(_2);
-        otherAttribute1.setOtherAttributeName3(_3);
-        otherAttribute1.setUserB(user);
+        AttributesUserB attribute1 = new AttributesUserB();
+        attribute1.setOtherAttributeName1(_1);
+        attribute1.setOtherAttributeName2(_2);
+        attribute1.setOtherAttributeName3(_3);
+        attribute1.setUserB(user);
 
-        AttributesUserC otherAttribute2 = new AttributesUserC();
-        otherAttribute2.setOtherAttributeName4(_4);
-        otherAttribute2.setOtherAttributeName5(_5);
-        otherAttribute2.setOtherAttributeName6(_6);
-        otherAttribute2.setUserC(user);
+        AttributesUserC attribute2 = new AttributesUserC();
+        attribute2.setOtherAttributeName4(_4);
+        attribute2.setOtherAttributeName5(_5);
+        attribute2.setOtherAttributeName6(_6);
+        attribute2.setUserC(user);
 
-        otherAttributesBRepository.save(otherAttribute1);
-        otherAttributesCRepository.save(otherAttribute2);
+        attributesBRepository.save(attribute1);
+        attributesCRepository.save(attribute2);
 
         userCRepository.save(user);
     }

@@ -2,9 +2,9 @@ package com.herencia.demoherencia.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.herencia.demoherencia.entities.AttributesUserC;
+import com.herencia.demoherencia.entities.AttributesUserB;
 
 @RepositoryRestResource
-public interface OtherAttributesCRepository extends JpaRepository<AttributesUserC, Long> {
+public interface AttributesBRepository extends JpaRepository<AttributesUserB, Long> {
 
 }
