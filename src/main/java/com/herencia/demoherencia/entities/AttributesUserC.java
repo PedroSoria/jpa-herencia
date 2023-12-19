@@ -12,9 +12,9 @@ import lombok.*;
 @Entity
 @Table(name = "other_attribute2")
 public class AttributesUserC implements Serializable {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "otherattribute_sequence")
-    @SequenceGenerator(name = "otherattribute_sequence", sequenceName = "otherattribute_sequence", allocationSize = 100)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     @OneToOne

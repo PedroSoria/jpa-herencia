@@ -31,7 +31,6 @@ public class SeedData implements ApplicationRunner {
     AttributesCRepository attributesCRepository;
 
     @Override
-    @Transactional
     public void run(ApplicationArguments args) throws Exception {
 
         CreateUser("User1", "User1");
@@ -39,6 +38,7 @@ public class SeedData implements ApplicationRunner {
         CreateUser("User3", "User3", "User3", "User3", "User3", "User3", "User3", "User3");
     }
 
+    @Transactional
     public void CreateUser(String email, String password) {
 
         UserA user = new UserA();
@@ -47,6 +47,7 @@ public class SeedData implements ApplicationRunner {
         userARepository.save(user);
     }
 
+    @Transactional
     public void CreateUser(String email, String password, String _1, String _2, String _3) {
 
         UserB user = new UserB();
@@ -63,8 +64,9 @@ public class SeedData implements ApplicationRunner {
         userBRepository.save(user);
     }
 
-    public void CreateUser(String email, String password, String _1, String _2, String _3, String _4, String _5,
-            String _6) {
+    @Transactional
+    public void CreateUser(String email, String password, String _1, String _2, String _3,
+            String _4, String _5, String _6) {
 
         UserC user = new UserC();
         user.setEmail(email);

@@ -9,9 +9,9 @@ import lombok.*;
 @Table(name = "_user")
 @Data
 public class UserA implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true)
     protected Long id;
 
     @Column(unique = true, nullable = false)
