@@ -36,6 +36,7 @@ public class SeedData implements ApplicationRunner {
         CreateUser("User1", "User1");
         CreateUser("User2", "User2", "User2", "User2", "User2");
         CreateUser("User3", "User3", "User3", "User3", "User3", "User3", "User3", "User3");
+
     }
 
     @Transactional
@@ -45,6 +46,7 @@ public class SeedData implements ApplicationRunner {
         user.setEmail(email);
         user.setPassword(password);
         userARepository.save(user);
+
     }
 
     @Transactional
@@ -62,6 +64,7 @@ public class SeedData implements ApplicationRunner {
 
         attributesBRepository.save(attribute1);
         userBRepository.save(user);
+
     }
 
     @Transactional
@@ -88,6 +91,7 @@ public class SeedData implements ApplicationRunner {
         attributesCRepository.save(attribute2);
 
         userCRepository.save(user);
+
     }
 
 }

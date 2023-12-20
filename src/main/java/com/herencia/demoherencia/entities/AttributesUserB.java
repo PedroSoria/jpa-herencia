@@ -23,4 +23,5 @@ public class AttributesUserB implements Serializable {
 
     @Column(nullable = false)
     String otherAttributeName3;
+
 }
