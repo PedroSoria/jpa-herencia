@@ -10,8 +10,9 @@ public class GroupPolicy implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    Long idGroupPolicy;
 
+    @Column(nullable = false)
     String name;
 
 }
