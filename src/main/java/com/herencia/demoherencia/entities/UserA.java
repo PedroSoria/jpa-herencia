@@ -1,6 +1,7 @@
 package com.herencia.demoherencia.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +20,8 @@ public class UserA implements Serializable {
 
     @Column(nullable = false)
     protected String password;
+
+    @ManyToMany
+    List<GroupPolicy> groupolicys;
 
 }
