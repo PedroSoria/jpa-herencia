@@ -5,15 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import com.herencia.demoherencia.entities.AttributesUser1;
 import com.herencia.demoherencia.entities.AttributesUserB;
 import com.herencia.demoherencia.entities.AttributesUserC;
 import com.herencia.demoherencia.entities.GroupPolicy;
+import com.herencia.demoherencia.entities.User1;
 import com.herencia.demoherencia.entities.UserC;
 import com.herencia.demoherencia.entities.UserB;
 import com.herencia.demoherencia.entities.UserA;
+import com.herencia.demoherencia.repository.Attributes1Repository;
 import com.herencia.demoherencia.repository.AttributesBRepository;
 import com.herencia.demoherencia.repository.AttributesCRepository;
 import com.herencia.demoherencia.repository.GroupPolicyRepository;
+import com.herencia.demoherencia.repository.User1Repository;
 import com.herencia.demoherencia.repository.UserARepository;
 import com.herencia.demoherencia.repository.UserBRepository;
 import com.herencia.demoherencia.repository.UserCRepository;
@@ -29,9 +34,13 @@ public class SeedData implements ApplicationRunner {
         @Autowired
         UserCRepository userCRepository;
         @Autowired
+        User1Repository user1Repository;
+        @Autowired
         AttributesBRepository attributesBRepository;
         @Autowired
         AttributesCRepository attributesCRepository;
+        @Autowired
+        Attributes1Repository attributes1Repository;
         @Autowired
         GroupPolicyRepository groupPolicyRepository;
 
@@ -39,9 +48,10 @@ public class SeedData implements ApplicationRunner {
         public void run(ApplicationArguments args) throws Exception {
 
                 createGrouPolicys();
-                CreateUser("User1", "User1");
-                CreateUser("User2", "User2", "User2", "User2", "User2");
-                CreateUser("User3", "User3", "User3", "User3", "User3", "User3", "User3", "User3");
+                CreateUser("UserA", "UserA");
+                CreateUser("User1", "User1", "User1", "User1");
+                CreateUser("UserB", "UserB", "UserB", "UserB", "UserB");
+                CreateUser("UserC", "UserC", "UserC", "UserC", "UserC", "UserC", "UserC", "UserC");
 
         }
 
@@ -76,6 +86,34 @@ public class SeedData implements ApplicationRunner {
 
                 user.setGroupolicys(groupPolicies);
                 userARepository.save(user);
+
+        }
+
+        @Transactional
+        public void CreateUser(String email, String password, String _1, String _2) {
+
+                // Assuming GroupPolicy has a constructor that accepts an ID
+                GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
+                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
+
+                User1 user = new User1();
+                user.setEmail(email);
+                user.setPassword(password);
+
+                ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
+                groupPolicies.add(groupPolicy2);
+
+                user.setGroupolicys(groupPolicies);
+
+                user1Repository.save(user); // Save user first to generate user ID
+
+                // Now, use the generated user ID for AttributesUserB
+                AttributesUser1 attribute1 = new AttributesUser1();
+                attribute1.setOtherAttributeNameA(_1);
+                attribute1.setOtherAttributeNameB(_2);
+                attribute1.setUser1(user);
+
+                attributes1Repository.save(attribute1);
 
         }
 

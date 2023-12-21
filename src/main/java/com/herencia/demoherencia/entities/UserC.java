@@ -6,6 +6,6 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-public class UserC extends UserB {
+public final class UserC extends UserB {
 
 }
