@@ -48,8 +48,8 @@ public class SeedData implements ApplicationRunner {
         public void run(ApplicationArguments args) throws Exception {
 
                 createGrouPolicys();
-                CreateUser("UserA", "UserA");
                 CreateUser("User1", "User1", "User1", "User1");
+                CreateUser("UserA", "UserA");
                 CreateUser("UserB", "UserB", "UserB", "UserB", "UserB");
                 CreateUser("UserC", "UserC", "UserC", "UserC", "UserC", "UserC", "UserC", "UserC");
 
