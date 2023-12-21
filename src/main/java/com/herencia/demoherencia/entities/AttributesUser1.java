@@ -10,15 +10,15 @@ public class AttributesUser1 implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long idAttributesUserB;
+    Long idAttributesUser1;
 
     @OneToOne
     protected User1 user1;
 
     @Column(nullable = false)
-    String otherAttributeNameA;
+    String otherAttributeName1;
 
     @Column(nullable = false)
-    String otherAttributeNameB;
+    String otherAttributeName2;
 
 }

@@ -10,7 +10,7 @@ public class AttributesUserC implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long idAttributesUserB;
+    Long idAttributesUserC;
 
     @OneToOne
     protected UserC userC;

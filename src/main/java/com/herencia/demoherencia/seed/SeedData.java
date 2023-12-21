@@ -71,9 +71,33 @@ public class SeedData implements ApplicationRunner {
         }
 
         @Transactional
+        public void CreateUser(String email, String password, String _1, String _2) {
+
+                GroupPolicy groupPolicy = groupPolicyRepository.findById(2L)
+                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
+
+                User1 user = new User1();
+                user.setEmail(email);
+                user.setPassword(password);
+
+                ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
+                groupPolicies.add(groupPolicy);
+                user.setGroupolicys(groupPolicies);
+
+                user1Repository.save(user);
+
+                AttributesUser1 attribute1 = new AttributesUser1();
+                attribute1.setOtherAttributeName1(_1);
+                attribute1.setOtherAttributeName2(_2);
+                attribute1.setUser1(user);
+
+                attributes1Repository.save(attribute1);
+
+        }
+
+        @Transactional
         public void CreateUser(String email, String password) {
 
-                // Assuming GroupPolicy has a constructor that accepts an ID
                 GroupPolicy groupPolicy = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
 
@@ -90,40 +114,10 @@ public class SeedData implements ApplicationRunner {
         }
 
         @Transactional
-        public void CreateUser(String email, String password, String _1, String _2) {
-
-                // Assuming GroupPolicy has a constructor that accepts an ID
-                GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
-
-                User1 user = new User1();
-                user.setEmail(email);
-                user.setPassword(password);
-
-                ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
-                groupPolicies.add(groupPolicy2);
-
-                user.setGroupolicys(groupPolicies);
-
-                user1Repository.save(user); // Save user first to generate user ID
-
-                // Now, use the generated user ID for AttributesUserB
-                AttributesUser1 attribute1 = new AttributesUser1();
-                attribute1.setOtherAttributeNameA(_1);
-                attribute1.setOtherAttributeNameB(_2);
-                attribute1.setUser1(user);
-
-                attributes1Repository.save(attribute1);
-
-        }
-
-        @Transactional
         public void CreateUser(String email, String password, String _1, String _2, String _3) {
 
-                // Assuming GroupPolicy has a constructor that accepts an ID
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
-
                 GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
 
@@ -137,9 +131,8 @@ public class SeedData implements ApplicationRunner {
 
                 user.setGroupolicys(groupPolicies);
 
-                userBRepository.save(user); // Save user first to generate user ID
+                userBRepository.save(user);
 
-                // Now, use the generated user ID for AttributesUserB
                 AttributesUserB attribute1 = new AttributesUserB();
                 attribute1.setOtherAttributeName1(_1);
                 attribute1.setOtherAttributeName2(_2);
@@ -154,13 +147,10 @@ public class SeedData implements ApplicationRunner {
         public void CreateUser(String email, String password, String _1, String _2, String _3,
                         String _4, String _5, String _6) {
 
-                // Assuming GroupPolicy has a constructor that accepts an ID
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
-
                 GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
-
                 GroupPolicy groupPolicy3 = groupPolicyRepository.findById(3L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 3 not found"));
 
@@ -174,10 +164,8 @@ public class SeedData implements ApplicationRunner {
                 groupPolicies.add(groupPolicy3);
 
                 user.setGroupolicys(groupPolicies);
+                userCRepository.save(user);
 
-                userCRepository.save(user); // Save user first to generate user ID
-
-                // Now, use the generated user ID for AttributesUserB and AttributesUserC
                 AttributesUserB attribute1 = new AttributesUserB();
                 attribute1.setOtherAttributeName1(_1);
                 attribute1.setOtherAttributeName2(_2);
@@ -193,7 +181,6 @@ public class SeedData implements ApplicationRunner {
                 attribute2.setUserC(user);
 
                 attributesCRepository.save(attribute2);
-
         }
 
 }
