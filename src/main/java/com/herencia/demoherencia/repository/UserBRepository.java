@@ -7,6 +7,4 @@ import com.herencia.demoherencia.entities.UserB;
 @RepositoryRestResource
 public interface UserBRepository extends JpaRepository<UserB, Long> {
 
-    // get all userB with extra dataB
-
 }
