@@ -2,7 +2,8 @@ package com.herencia.demoherencia.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.herencia.demoherencia.entities.GroupPolicy;
+
+import com.herencia.demoherencia.model.GroupPolicy;
 
 @RepositoryRestResource
 public interface GroupPolicyRepository extends JpaRepository<GroupPolicy, Long> {

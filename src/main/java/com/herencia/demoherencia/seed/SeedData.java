@@ -5,12 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import com.herencia.demoherencia.entities.GroupPolicy;
-import com.herencia.demoherencia.entities.Provider;
-import com.herencia.demoherencia.entities.Client;
-import com.herencia.demoherencia.entities.User;
+
 import com.herencia.demoherencia.repository.GroupPolicyRepository;
 import com.herencia.demoherencia.repository.UserRepository;
+import com.herencia.demoherencia.model.Client;
+import com.herencia.demoherencia.model.GroupPolicy;
+import com.herencia.demoherencia.model.Provider;
+import com.herencia.demoherencia.model.User;
 import com.herencia.demoherencia.repository.ClientRepository;
 import com.herencia.demoherencia.repository.ProviderRepository;
 import jakarta.transaction.Transactional;

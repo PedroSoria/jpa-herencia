@@ -1,4 +1,4 @@
-package com.herencia.demoherencia.entities;
+package com.herencia.demoherencia.model;
 
 import jakarta.persistence.*;
 import lombok.*;
