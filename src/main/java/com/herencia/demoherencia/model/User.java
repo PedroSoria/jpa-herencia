@@ -9,8 +9,7 @@ import lombok.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "_user")
-@Getter
-@Setter
+@Data
 public class User implements Serializable {
 
     @Id
