@@ -31,8 +31,8 @@ public class SeedData implements ApplicationRunner {
         public void run(ApplicationArguments args) throws Exception {
 
                 createGrouPolicys();
-                CreateUser("Client1", "Passw0r", "Rivadavia 1621");
-                CreateUser("Provider1", "Passw0r", "Santa Fe 3701", "Provider Brand");
+                CreateUser("Client1", "Client1 Passw0r", "Client1 Address");
+                CreateUser("Provider1", "Provider1 Passw0r", "Provider1 Address", "Provider Brand");
 
         }
 
