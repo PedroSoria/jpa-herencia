@@ -9,8 +9,9 @@ import lombok.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "_user")
-@Data
-public abstract class User implements Serializable {
+@Getter
+@Setter
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

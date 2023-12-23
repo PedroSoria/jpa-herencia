@@ -7,11 +7,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import com.herencia.demoherencia.repository.IGroupPolicyRepository;
 import com.herencia.demoherencia.repository.IUserRepository;
-import com.herencia.demoherencia.model.Admin;
 import com.herencia.demoherencia.model.Client;
 import com.herencia.demoherencia.model.GroupPolicy;
 import com.herencia.demoherencia.model.Provider;
-import com.herencia.demoherencia.repository.IAdminRepository;
+import com.herencia.demoherencia.model.User;
 import com.herencia.demoherencia.repository.IClientRepository;
 import com.herencia.demoherencia.repository.IProviderRepository;
 import jakarta.transaction.Transactional;
@@ -19,8 +18,6 @@ import jakarta.transaction.Transactional;
 @Component
 public class SeedData implements ApplicationRunner {
 
-        @Autowired
-        IAdminRepository adminRepository;
         @Autowired
         IUserRepository userRepository;
         @Autowired
@@ -59,16 +56,16 @@ public class SeedData implements ApplicationRunner {
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(3L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 3 not found"));
 
-                Admin user = new Admin();
-                user.setEmail(email);
-                user.setPassword(password);
-
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
 
+                User user = new User();
+
+                user.setEmail(email);
+                user.setPassword(password);
                 user.setGroupolicys(groupPolicies);
 
-                adminRepository.save(user);
+                userRepository.save(user);
         }
 
         @Transactional
@@ -77,14 +74,14 @@ public class SeedData implements ApplicationRunner {
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
 
-                Client user = new Client();
-                user.setEmail(email);
-                user.setPassword(password);
-                user.setAddress(address);
-
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
 
+                Client user = new Client();
+
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setAddress(address);
                 user.setGroupolicys(groupPolicies);
 
                 clientRepository.save(user);
@@ -98,16 +95,16 @@ public class SeedData implements ApplicationRunner {
                 GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
 
-                Provider user = new Provider();
-                user.setEmail(email);
-                user.setPassword(password);
-                user.setAddress(address);
-                user.setBrand(brand);
-
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
                 groupPolicies.add(groupPolicy2);
 
+                Provider user = new Provider();
+
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setAddress(address);
+                user.setBrand(brand);
                 user.setGroupolicys(groupPolicies);
 
                 providerRepository.save(user);
