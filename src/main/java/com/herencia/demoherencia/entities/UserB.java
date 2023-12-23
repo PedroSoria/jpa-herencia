@@ -7,5 +7,12 @@ import lombok.*;
 @Getter
 @Setter
 public class UserB extends UserA {
+    @Column(nullable = false)
+    String otherAttributeName1;
 
+    @Column(nullable = false)
+    String otherAttributeName2;
+
+    @Column(nullable = false)
+    String otherAttributeName3;
 }
