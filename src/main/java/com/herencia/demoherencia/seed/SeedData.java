@@ -5,28 +5,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-
-import com.herencia.demoherencia.repository.GroupPolicyRepository;
-import com.herencia.demoherencia.repository.UserRepository;
+import com.herencia.demoherencia.repository.IGroupPolicyRepository;
+import com.herencia.demoherencia.repository.IUserRepository;
 import com.herencia.demoherencia.model.Client;
 import com.herencia.demoherencia.model.GroupPolicy;
 import com.herencia.demoherencia.model.Provider;
-import com.herencia.demoherencia.model.User;
-import com.herencia.demoherencia.repository.ClientRepository;
-import com.herencia.demoherencia.repository.ProviderRepository;
+import com.herencia.demoherencia.repository.IClientRepository;
+import com.herencia.demoherencia.repository.IProviderRepository;
 import jakarta.transaction.Transactional;
 
 @Component
 public class SeedData implements ApplicationRunner {
 
         @Autowired
-        UserRepository userARepository;
+        IUserRepository userRepository;
         @Autowired
-        ClientRepository userBRepository;
+        IClientRepository clientRepository;
         @Autowired
-        ProviderRepository userCRepository;
+        IProviderRepository providerRepository;
         @Autowired
-        GroupPolicyRepository groupPolicyRepository;
+        IGroupPolicyRepository groupPolicyRepository;
 
         @Transactional
         public void run(ApplicationArguments args) throws Exception {
@@ -71,7 +69,7 @@ public class SeedData implements ApplicationRunner {
 
                 user.setGroupolicys(groupPolicies);
 
-                userBRepository.save(user);
+                clientRepository.save(user);
         }
 
         @Transactional
@@ -96,7 +94,8 @@ public class SeedData implements ApplicationRunner {
                 groupPolicies.add(groupPolicy3);
 
                 user.setGroupolicys(groupPolicies);
-                userCRepository.save(user);
+
+                providerRepository.save(user);
         }
 
 }
