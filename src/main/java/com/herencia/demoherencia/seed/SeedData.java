@@ -32,7 +32,7 @@ public class SeedData implements ApplicationRunner {
 
                 createGrouPolicys();
                 CreateUser("Client1", "Client1 Passw0r", "Client1 Address");
-                CreateUser("Provider1", "Provider1 Passw0r", "Provider1 Address", "Provider Brand");
+                CreateUser("Provider1", "Provider1 Passw0r", "Provider1 Address", "Provider1 Brand");
 
         }
 
