@@ -6,26 +6,24 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import com.herencia.demoherencia.entities.GroupPolicy;
-import com.herencia.demoherencia.entities.UserC;
-import com.herencia.demoherencia.entities.UserB;
-import com.herencia.demoherencia.entities.UserA;
+import com.herencia.demoherencia.entities.Provider;
+import com.herencia.demoherencia.entities.Client;
+import com.herencia.demoherencia.entities.User;
 import com.herencia.demoherencia.repository.GroupPolicyRepository;
-import com.herencia.demoherencia.repository.UserARepository;
-import com.herencia.demoherencia.repository.UserBRepository;
-import com.herencia.demoherencia.repository.UserCRepository;
+import com.herencia.demoherencia.repository.UserRepository;
+import com.herencia.demoherencia.repository.ClientRepository;
+import com.herencia.demoherencia.repository.ProviderRepository;
 import jakarta.transaction.Transactional;
 
 @Component
 public class SeedData implements ApplicationRunner {
 
-        // @Autowired
-        // UserRepository userRepository;
         @Autowired
-        UserARepository userARepository;
+        UserRepository userARepository;
         @Autowired
-        UserBRepository userBRepository;
+        ClientRepository userBRepository;
         @Autowired
-        UserCRepository userCRepository;
+        ProviderRepository userCRepository;
         @Autowired
         GroupPolicyRepository groupPolicyRepository;
 
@@ -33,10 +31,8 @@ public class SeedData implements ApplicationRunner {
         public void run(ApplicationArguments args) throws Exception {
 
                 createGrouPolicys();
-                CreateUser("UserA", "UserA");
-                CreateUser("UserB", "UserB", "UserB", "UserB", "UserB");
-                CreateUser("UserC", "UserC", "UserC", "UserC", "UserC",
-                                "UserC", "UserC", "UserC");
+                CreateUser("Client1", "Passw0r", "Rivadavia 1621");
+                CreateUser("Provider1", "Passw0r", "Santa Fe 3701", "Provider Brand");
 
         }
 
@@ -56,38 +52,17 @@ public class SeedData implements ApplicationRunner {
         }
 
         @Transactional
-        public void CreateUser(String email, String password) {
-
-                GroupPolicy groupPolicy = groupPolicyRepository.findById(1L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
-
-                UserA user = new UserA();
-                user.setEmail(email);
-                user.setPassword(password);
-
-                ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
-                groupPolicies.add(groupPolicy);
-
-                user.setGroupolicys(groupPolicies);
-                userARepository.save(user);
-
-        }
-
-        @Transactional
-        public void CreateUser(String email, String password, String _1, String _2,
-                        String _3) {
+        public void CreateUser(String email, String password, String address) {
 
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
                 GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
 
-                UserB user = new UserB();
+                Client user = new Client();
                 user.setEmail(email);
                 user.setPassword(password);
-                user.setOtherAttributeName1(_1);
-                user.setOtherAttributeName2(_2);
-                user.setOtherAttributeName3(_3);
+                user.setAddress(address);
 
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
@@ -99,8 +74,7 @@ public class SeedData implements ApplicationRunner {
         }
 
         @Transactional
-        public void CreateUser(String email, String password, String _1, String _2,
-                        String _3, String _4, String _5, String _6) {
+        public void CreateUser(String email, String password, String address, String brand) {
 
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
@@ -109,15 +83,11 @@ public class SeedData implements ApplicationRunner {
                 GroupPolicy groupPolicy3 = groupPolicyRepository.findById(3L)
                                 .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 3 not found"));
 
-                UserC user = new UserC();
+                Provider user = new Provider();
                 user.setEmail(email);
                 user.setPassword(password);
-                user.setOtherAttributeName1(_1);
-                user.setOtherAttributeName2(_2);
-                user.setOtherAttributeName3(_3);
-                user.setOtherAttributeName4(_4);
-                user.setOtherAttributeName5(_5);
-                user.setOtherAttributeName6(_6);
+                user.setAddress(address);
+                user.setBrand(brand);
 
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
