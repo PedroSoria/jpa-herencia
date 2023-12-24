@@ -9,4 +9,5 @@ import lombok.*;
 public class Client extends User {
     @Column(nullable = false)
     String address;
+
 }

@@ -9,4 +9,5 @@ import lombok.*;
 public final class Provider extends Client {
     @Column(nullable = false)
     String brand;
+
 }
