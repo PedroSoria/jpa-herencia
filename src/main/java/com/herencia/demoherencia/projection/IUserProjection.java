@@ -6,7 +6,7 @@ import com.herencia.demoherencia.model.GroupPolicy;
 import com.herencia.demoherencia.model.User;
 
 @Projection(types = { User.class })
-public interface UserProjection {
+public interface IUserProjection {
 
     String getEmail();
 

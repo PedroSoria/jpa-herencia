@@ -4,7 +4,7 @@ import org.springframework.data.rest.core.config.Projection;
 import com.herencia.demoherencia.model.Client;
 
 @Projection(types = { Client.class })
-public interface ClientProjection extends UserProjection {
+public interface IClientProjection extends IUserProjection {
 
     String getAddress();
 
