@@ -31,9 +31,18 @@ public class SeedData implements ApplicationRunner {
         public void run(ApplicationArguments args) throws Exception {
 
                 createGrouPolicys();
-                CreateUser("Admin", "Admin Passw0rd");
-                CreateUser("Client1", "Client1 Passw0r", "Client1 Address");
-                CreateUser("Provider1", "Provider1 Passw0r", "Provider1 Address", "Provider1 Brand");
+                CreateUser(
+                                "Admin",
+                                "Admin Passw0rd");
+                CreateUser(
+                                "Client1",
+                                "Client1 Passw0r",
+                                "Client1 Address");
+                CreateUser(
+                                "Provider1",
+                                "Provider1 Passw0r",
+                                "Provider1 Address",
+                                "Provider1 Brand");
         }
 
         @Transactional
@@ -54,7 +63,8 @@ public class SeedData implements ApplicationRunner {
         public void CreateUser(String email, String password) {
 
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(3L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 3 not found"));
+                                .orElseThrow(() -> new RuntimeException(
+                                                "GroupPolicy with ID 3 not found"));
 
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
@@ -72,7 +82,8 @@ public class SeedData implements ApplicationRunner {
         public void CreateUser(String email, String password, String address) {
 
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
+                                .orElseThrow(() -> new RuntimeException(
+                                                "GroupPolicy with ID 1 not found"));
 
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
@@ -91,9 +102,11 @@ public class SeedData implements ApplicationRunner {
         public void CreateUser(String email, String password, String address, String brand) {
 
                 GroupPolicy groupPolicy1 = groupPolicyRepository.findById(1L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 1 not found"));
+                                .orElseThrow(() -> new RuntimeException(
+                                                "GroupPolicy with ID 1 not found"));
                 GroupPolicy groupPolicy2 = groupPolicyRepository.findById(2L)
-                                .orElseThrow(() -> new RuntimeException("GroupPolicy with ID 2 not found"));
+                                .orElseThrow(() -> new RuntimeException(
+                                                "GroupPolicy with ID 2 not found"));
 
                 ArrayList<GroupPolicy> groupPolicies = new ArrayList<>();
                 groupPolicies.add(groupPolicy1);
