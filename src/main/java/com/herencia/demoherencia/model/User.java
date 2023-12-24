@@ -2,11 +2,7 @@ package com.herencia.demoherencia.model;
 
 import java.io.Serializable;
 import java.util.List;
-
-import org.springframework.data.rest.core.config.Projection;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import lombok.*;
 
