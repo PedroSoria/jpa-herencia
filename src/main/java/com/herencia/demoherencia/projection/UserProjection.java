@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.config.Projection;
 import com.herencia.demoherencia.model.GroupPolicy;
 import com.herencia.demoherencia.model.User;
 
-@Projection(name = "user_projection", types = { User.class })
+@Projection(types = { User.class })
 public interface UserProjection {
 
     String getEmail();

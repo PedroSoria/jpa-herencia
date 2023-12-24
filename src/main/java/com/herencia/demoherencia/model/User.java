@@ -19,7 +19,7 @@ public class User implements Serializable {
     @Column(unique = true, nullable = false)
     protected String email;
 
-    @JsonIgnore
+    // @JsonIgnore
     @Column(nullable = false)
     protected String password;
 
